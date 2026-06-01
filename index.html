@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programa Agrinho | Educação e Cidadania</title>
+    <style>
+        /* Reset e Configurações Básicas */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --verde-escuro: #1e5c33;
+            --verde-claro: #4caf50;
+            --laranja: #ff9800;
+            --branco: #ffffff;
+            --cinza-claro: #f4f7f5;
+            --texto: #333333;
+        }
+
+        body {
+            background-color: var(--cinza-claro);
+            color: var(--texto);
+            line-height: 1.6;
+        }
+
+        /* Cabeçalho e Navegação */
+        header {
+            background-color: var(--verde-escuro);
+            color: var(--branco);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: var(--laranja);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--branco);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--laranja);
+        }
+
+        /* Seção Hero (Banner Principal) */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--branco);
+            padding: 0 1rem;
+        }
+
+        .hero-content h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 2rem auto;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+        }
+
+        .btn {
+            background-color: var(--laranja);
+            color: var(--branco);
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #e68a00;
+        }
+
+        /* Seções de Conteúdo */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--verde-escuro);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--laranja);
+            margin: 0.5rem auto 0 auto;
+            border-radius: 2px;
+        }
+
+        /* Sobre o Programa */
+        .sobre-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .sobre-texto p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .sobre-img img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Pilares / Objetivos */
+        .pilares {
+            background-color: var(--branco);
+        }
+
+        .grid-pilares {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .pilar-card {
+            background-color: var(--cinza-claro);
+            padding: 2.5rem 2rem;
+            border-radius: 8px;
+            text-align: center;
+            border-top: 5px solid var(--verde-claro);
+            transition: transform 0.3s;
+        }
+
+        .pilar-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .pilar-card h3 {
+            color: var(--verde-escuro);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        /* Concurso Agrinho */
+        .concurso-info {
+            background: var(--verde-escuro);
+            color: var(--branco);
+            border-radius: 10px;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .concurso-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--laranja);
+        }
+
+        .concurso-info p {
+            max-width: 800px;
+            margin: 0 auto 2rem auto;
+            font-size: 1.1rem;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #111;
+            color: #ccc;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+            }
+
+            nav ul li {
+                margin: 0 1rem;
+            }
+
+            .hero-content h2 {
+                font-size: 2rem;
+            }
+
+            .sobre-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <h1>Projeto<span>Agrinho</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#objetivos">Objetivos</a></li>
+                    <li><a href="#concurso">Concurso</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Semeando Educação, Colhendo Cidadania</h2>
+            <p>O maior programa de responsabilidade social do Sistema FAEP/SENAR, levando conhecimento e sustentabilidade para as escolas há mais de 25 anos.</p>
+            <a href="#sobre" class="btn">Saiba Mais</a>
+        </div>
+    </section>
+
+    <section id="sobre" class="container">
+        <h2 class="section-title">O que é o Agrinho?</h2>
+        <div class="sobre-grid">
+            <div class="sobre-texto">
+                <p>O <strong>Programa Agrinho</strong> é uma iniciativa de grande impacto que integra o campo e a cidade por meio da educação. Realizado em parceria com escolas públicas e privadas, o projeto propõe ações pedagógicas focadas na conscientização social e ambiental.</p>
+                <p>Utilizando a metodologia da pedagogia da pesquisa, o Agrinho incentiva alunos e professores a desenvolverem projetos criativos que geram soluções reais para suas comunidades, promovendo a ética, a sustentabilidade e a cidadania desde a infância.</p>
+            </div>
+            <div class="sobre-img">
+                <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Crianças plantando mudas">
+            </div>
+        </div>
+    </section>
+
+    <section id="objetivos" class="pilares">
+        <div class="container">
+            <h2 class="section-title">Nossos Pilares</h2>
+            <div class="grid-pilares">
+                <div class="pilar-card">
+                    <h3>Meio Ambiente</h3>
+                    <p>Incentivo a práticas sustentáveis, preservação da biodiversidade, cuidado com a água e o solo, e reciclagem consciente.</p>
+                </div>
+                <div class="pilar-card">
+                    <h3>Cidadania e Ética</h3>
+                    <p>Desenvolvimento de valores humanos, direitos e deveres, respeito à diversidade e cooperação comunitária.</p>
+                </div>
+                <div class="pilar-card">
+                    <h3>Saúde e Nutrição</h3>
+                    <p>Orientação sobre alimentação saudável, cultivo de hortas escolares e hábitos de vida que promovem o bem-estar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="concurso" class="container">
+        <h2 class="section-title">O Concurso Agrinho</h2>
+        <div class="concurso-info">
+            <h3>Reconhecendo Talentos e Ideias</h3>
+            <p>Anualmente, o programa realiza o tradicional Concurso Agrinho, que premia os melhores trabalhos desenvolvidos por alunos e professores. São diversas categorias como Desenho, Redação, Experiência Pedagógica e Escola Agrinho, distribuindo prêmios que incentivam a continuidade da pesquisa e do aprendizado prático.</p>
+            <p>Participe com a sua escola e ajude a transformar a realidade da sua região através do conhecimento!</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Site Educacional sobre o Programa Agrinho. Criado para fins informativos e pedagógicos.</p>
+    </footer>
+
+</body>
+</html>
