@@ -1,0 +1,272 @@
+/* ====================================
+   1. RESET E CONFIGURAÇÕES GERAIS
+   ==================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* Variáveis de Cor para facilitar a manutenção */
+:root {
+    --verde-primario: #2e7d32;
+    --verde-escuro: #1b5e20;
+    --laranja-destaque: #f57c00;
+    --cor-texto: #333333;
+    --fundo-claro: #f9fbf9;
+    --branco: #ffffff;
+}
+
+html {
+    scroll-behavior: smooth; /* Efeito de rolagem suave ao clicar nos links */
+}
+
+body {
+    background-color: var(--branco);
+    color: var(--cor-texto);
+    line-height: 1.6;
+}
+
+/* Container padrão para alinhar o conteúdo no centro da tela */
+.interface-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-padding {
+    padding: 80px 0;
+}
+
+.titulo-sessao {
+    text-align: center;
+    font-size: 2.2rem;
+    color: var(--verde-escuro);
+    margin-bottom: 40px;
+}
+
+/* Linha decorativa abaixo dos títulos */
+.titulo-sessao::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 4px;
+    background-color: var(--laranja-destaque);
+    margin: 10px auto 0 auto;
+    border-radius: 2px;
+}
+
+/* ====================================
+   2. CABEÇALHO E NAVEGAÇÃO (FLEXBOX)
+   ==================================== */
+.main-header {
+    background-color: var(--verde-escuro);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.main-header .interface-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.logo h1 {
+    color: var(--branco);
+    font-size: 1.8rem;
+}
+
+.logo span {
+    color: var(--laranja-destaque);
+}
+
+.nav-menu ul {
+    display: flex;
+    list-style: none;
+}
+
+.nav-menu ul li {
+    margin-left: 30px;
+}
+
+.nav-menu ul li a {
+    color: var(--branco);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-menu ul li a:hover {
+    color: var(--laranja-destaque);
+}
+
+/* ====================================
+   3. HERO BANNER
+   ==================================== */
+.hero-banner {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), 
+                url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--branco);
+    padding: 0 20px;
+}
+
+.hero-text h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+}
+
+.btn-principal {
+    background-color: var(--laranja-destaque);
+    color: var(--branco);
+    padding: 12px 35px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: background 0.3s transform 0.2s;
+    display: inline-block;
+}
+
+.btn-principal:hover {
+    background-color: #e66e00;
+    transform: scale(1.05);
+}
+
+/* ====================================
+   4. LAYOUTS EM GRID (SOBRE E PILARES)
+   ==================================== */
+.grid-duplo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.coluna-texto p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.coluna-imagem img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.fundo-alternativo {
+    background-color: var(--fundo-claro);
+}
+
+.grid-tres-colunas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* Cards dos Pilares */
+.card {
+    background-color: var(--branco);
+    padding: 40px 30px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border-bottom: 4px solid var(--verde-primario);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    color: var(--verde-escuro);
+    margin-bottom: 15px;
+}
+
+/* ====================================
+   5. DESTAQUE CONCURSO & RODAPÉ
+   ==================================== */
+.destaque-concurso {
+    background-color: var(--verde-primario);
+    color: var(--branco);
+    padding: 50px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(46, 125, 50, 0.3);
+}
+
+.destaque-concurso h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--laranja-destaque);
+}
+
+.destaque-concurso p {
+    max-width: 900px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+}
+
+.main-footer {
+    background-color: #1a1a1a;
+    color: #999999;
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 0.9rem;
+    border-top: 3px solid var(--laranja-destaque);
+}
+
+/* ====================================
+   6. RESPONSIVIDADE (MEDIA QUERIES)
+   ==================================== */
+@media (max-width: 768px) {
+    .main-header .interface-container {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 20px;
+    }
+
+    .nav-menu {
+        margin-top: 15px;
+    }
+
+    .nav-menu ul li {
+        margin: 0 15px;
+    }
+
+    .hero-text h2 {
+        font-size: 2rem;
+    }
+
+    .grid-duplo {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .section-padding {
+        padding: 50px 0;
+    }
+}
